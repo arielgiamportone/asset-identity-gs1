@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "assetid"
+version = "0.1.0"
+description = "GS1 identity for physical inventory assets: GIAI, GIAI-96 EPC, GS1 Digital Link, checked aliases, Code128/QR label sheets and RFID ZPL, with offline multi-tenant uniqueness."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "arielgiamportone" }]
+keywords = [
+  "gs1", "giai", "epc", "giai-96", "rfid", "uhf", "digital-link", "code128", "qr",
+  "zpl", "labels", "asset-management", "inventory", "govtech", "multi-tenant",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Office/Business",
+  "Topic :: Printing",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+dependencies = [
+  "reportlab>=4.0",
+  "pillow>=10.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/arielgiamportone/asset-identity-gs1"
+Repository = "https://github.com/arielgiamportone/asset-identity-gs1"
+Issues = "https://github.com/arielgiamportone/asset-identity-gs1/issues"
+Changelog = "https://github.com/arielgiamportone/asset-identity-gs1/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+include = ["assetid*"]
+
+[tool.setuptools.package-data]
+assetid = ["py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W", "N"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["error::DeprecationWarning:assetid"]
