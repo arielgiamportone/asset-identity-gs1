@@ -122,3 +122,25 @@ en ~4,4 s. Detalle y reproducción en el README.
    `mark`, `reprint`, `mark_placed_from_field`, `resolve_scanned`,
    `verify_scan`, `render_sheet`, `render_single`, `build_zpl`,
    `build_zpl_batch`, y las excepciones).
+
+## 6. Resultado de la fase 3
+
+Veredicto recibido: **CORREGIR**, con dos puntos. Ambos aplicados:
+
+1. **Historial reescrito.** Los ocho commits de la rama, incluido el inicial,
+   tienen ahora como autor y committer `arielgiamportone
+   <72769815+arielgiamportone@users.noreply.github.com>`. Mensajes y trailers
+   se conservan íntegros (los cuerpos antes y después de la reescritura son
+   idénticos, y los árboles también). La identidad queda configurada en el
+   repositorio para los commits nuevos. Comprobación:
+   `git log --format='%an <%ae>' | sort -u` devuelve una sola línea con el
+   handle.
+2. **Constantes renombradas.** `MOD43_ALPHABET` → `CHECK_ALPHABET` y
+   `DEFAULT_PRESET` → `SHEET_PRESET_DEFAULT` en código, exports (`__all__` de
+   `assetid`, `assetid.checkchar` y `assetid.labels_pdf`) y tests. Decisiones
+   32 y 33 de `DECISIONES.md`.
+
+Tras las correcciones: `pytest` 148 passed, `ruff check` y `ruff format
+--check` limpios, test anti-fugas (árbol e historial) en verde, gitleaks sin
+hallazgos. Sin releases ni cambio de visibilidad; pendiente del veredicto
+definitivo.

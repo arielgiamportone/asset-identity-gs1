@@ -124,3 +124,16 @@ la especificación.
     `pyproject.toml`.
 31. **Exención única:** la frase de atribución literal del README, también
     sellada, se elimina del texto antes del barrido.
+
+## Correcciones tras la revisión de fase 3
+
+32. **Constantes renombradas.** `MOD43_ALPHABET` pasa a `CHECK_ALPHABET` y
+    `DEFAULT_PRESET` a `SHEET_PRESET_DEFAULT` en código, exports y tests, a
+    petición del revisor, para alejar los nombres públicos de los de la
+    fuente. Los valores no cambian.
+33. **Autoría del historial.** Los ocho commits de la rama (incluido el
+    inicial) se reescribieron para que autor y committer sean la cuenta del
+    propietario (`arielgiamportone` con su correo *noreply* de GitHub),
+    manteniendo mensajes y trailers. La identidad queda configurada en el
+    repositorio para los commits posteriores. El test anti-fugas sigue sin
+    barrer cabeceras de autor; con esta autoría ya no hay nada que exentar.

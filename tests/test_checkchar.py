@@ -5,13 +5,13 @@ from __future__ import annotations
 import pytest
 
 from assetid import InvalidCharacter, compute_check_char
-from assetid.checkchar import MOD43_ALPHABET, verify_check_char
+from assetid.checkchar import CHECK_ALPHABET, verify_check_char
 
 
 def test_alphabet_has_43_symbols_in_code39_order() -> None:
-    assert len(MOD43_ALPHABET) == 43
-    assert MOD43_ALPHABET.startswith("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-    assert MOD43_ALPHABET.endswith("-. $/+%")
+    assert len(CHECK_ALPHABET) == 43
+    assert CHECK_ALPHABET.startswith("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    assert CHECK_ALPHABET.endswith("-. $/+%")
 
 
 def test_spec_worked_example() -> None:
@@ -23,13 +23,13 @@ def test_spec_worked_example() -> None:
 def test_check_char_is_deterministic_and_in_alphabet(body: str) -> None:
     first = compute_check_char(body)
     assert first == compute_check_char(body)
-    assert len(first) == 1 and first in MOD43_ALPHABET
+    assert len(first) == 1 and first in CHECK_ALPHABET
 
 
 def test_check_char_matches_brute_force() -> None:
     body = "NOR-ART0007"
-    total = sum(MOD43_ALPHABET.index(c) for c in body)
-    assert compute_check_char(body) == MOD43_ALPHABET[total % 43]
+    total = sum(CHECK_ALPHABET.index(c) for c in body)
+    assert compute_check_char(body) == CHECK_ALPHABET[total % 43]
 
 
 @pytest.mark.parametrize("body", ["café", "abc", "ABC_1", "ABC*1"])

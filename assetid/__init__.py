@@ -8,7 +8,7 @@ ZPL for RFID encoders).
 
 from __future__ import annotations
 
-from .checkchar import MOD43_ALPHABET, compute_check_char, verify_check_char
+from .checkchar import CHECK_ALPHABET, compute_check_char, verify_check_char
 from .epc import (
     GIAI96_HEADER,
     PARTITIONS,
@@ -53,7 +53,7 @@ from .identity import (
     split_giai,
 )
 from .labels_pdf import (
-    DEFAULT_PRESET,
+    SHEET_PRESET_DEFAULT,
     SHEET_PRESETS,
     LabelFace,
     SheetPreset,
@@ -77,14 +77,14 @@ __version__ = "0.1.0"
 __all__ = [
     "ALIAS_PREFIX",
     "ALLOWED_TRANSITIONS",
-    "DEFAULT_PRESET",
+    "CHECK_ALPHABET",
     "SHEET_PRESETS",
+    "SHEET_PRESET_DEFAULT",
     "ASSET_REFERENCE_DIGITS",
     "BLOCK_DIGITS",
     "GIAI96_HEADER",
     "GIAI_AI",
     "GIAI_MAX_LENGTH",
-    "MOD43_ALPHABET",
     "PARTITIONS",
     "SERIAL_DIGITS",
     "AliasParts",

@@ -4,18 +4,18 @@ from __future__ import annotations
 
 from .errors import InvalidCharacter
 
-__all__ = ["MOD43_ALPHABET", "compute_check_char", "verify_check_char"]
+__all__ = ["CHECK_ALPHABET", "compute_check_char", "verify_check_char"]
 
 #: The 43 Code 39 symbols in value order (0..42).
-MOD43_ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%"
+CHECK_ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%"
 
-_VALUE_OF = {symbol: value for value, symbol in enumerate(MOD43_ALPHABET)}
+_VALUE_OF = {symbol: value for value, symbol in enumerate(CHECK_ALPHABET)}
 
 
 def compute_check_char(body: str) -> str:
     """Return the mod-43 check character of ``body``.
 
-    Every character of ``body`` must belong to :data:`MOD43_ALPHABET`; the
+    Every character of ``body`` must belong to :data:`CHECK_ALPHABET`; the
     check character is the symbol whose value equals the sum of the body values
     modulo 43. An empty body is allowed and yields ``"0"``.
 
@@ -28,9 +28,9 @@ def compute_check_char(body: str) -> str:
             total += _VALUE_OF[char]
         except KeyError:
             raise InvalidCharacter(
-                f"character {char!r} is outside the mod-43 alphabet {MOD43_ALPHABET!r}"
+                f"character {char!r} is outside the mod-43 alphabet {CHECK_ALPHABET!r}"
             ) from None
-    return MOD43_ALPHABET[total % 43]
+    return CHECK_ALPHABET[total % 43]
 
 
 def verify_check_char(body: str, check: str) -> bool:

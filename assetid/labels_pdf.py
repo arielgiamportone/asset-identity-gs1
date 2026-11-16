@@ -28,8 +28,8 @@ from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 
 __all__ = [
-    "DEFAULT_PRESET",
     "SHEET_PRESETS",
+    "SHEET_PRESET_DEFAULT",
     "LabelFace",
     "SheetPreset",
     "decode_logo",
@@ -68,7 +68,7 @@ SHEET_PRESETS: dict[str, SheetPreset] = {
     "a4-65": SheetPreset("a4-65", 5, 13, 38.1, 21.2, 4.75, 10.7, 40.6, 21.2),
     "a4-14": SheetPreset("a4-14", 2, 7, 99.1, 38.1, 4.65, 15.1, 101.6, 38.1),
 }
-DEFAULT_PRESET = "a4-21"
+SHEET_PRESET_DEFAULT = "a4-21"
 
 _PAD_MM = 1.5
 _HEADER_PT = 5.5
@@ -247,7 +247,7 @@ def _draw_face(
 def render_sheet(
     labels: Iterable[Any],
     org_name: str,
-    preset: str = DEFAULT_PRESET,
+    preset: str = SHEET_PRESET_DEFAULT,
     start_offset: int = 0,
     logo: str | bytes | None = None,
     *,
