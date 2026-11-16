@@ -48,4 +48,5 @@ jobs:
           mkdir -p "$RUNNER_TEMP/gitleaks" && tar -xzf gitleaks.tgz -C "$RUNNER_TEMP/gitleaks" && rm gitleaks.tgz
       - name: Scan the full history
         # Scans every commit, not just the pushed range, so a rewritten root commit cannot break it.
-        run: "$RUNNER_TEMP/gitleaks/gitleaks" git -v --no-banner --redact .
+        run: |
+          "$RUNNER_TEMP/gitleaks/gitleaks" git -v --no-banner --redact .
