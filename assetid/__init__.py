@@ -20,6 +20,7 @@ from .epc import (
 )
 from .errors import (
     AssetIdError,
+    DuplicateAlias,
     IllegalTransition,
     InvalidCharacter,
     NamespaceCollision,
@@ -67,6 +68,7 @@ __all__ = [
     "AliasParts",
     "AssetIdError",
     "AssetIdentity",
+    "DuplicateAlias",
     "CodeKind",
     "Giai96Parts",
     "IllegalTransition",

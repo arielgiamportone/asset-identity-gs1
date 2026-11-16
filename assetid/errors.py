@@ -4,6 +4,7 @@ from __future__ import annotations
 
 __all__ = [
     "AssetIdError",
+    "DuplicateAlias",
     "IllegalTransition",
     "InvalidCharacter",
     "NamespaceCollision",
@@ -39,3 +40,7 @@ class NamespaceIncomplete(AssetIdError):
 
 class IllegalTransition(AssetIdError):
     """A label state change is not allowed by the lifecycle table."""
+
+
+class DuplicateAlias(AssetIdError):
+    """Another asset of the tenant already carries this inventory number."""
