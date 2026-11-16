@@ -52,11 +52,33 @@ from .identity import (
     split_asset_reference,
     split_giai,
 )
+from .labels_pdf import (
+    DEFAULT_PRESET,
+    SHEET_PRESETS,
+    LabelFace,
+    SheetPreset,
+    render_sheet,
+    render_single,
+)
+from .lifecycle import ALLOWED_TRANSITIONS, LabelState, can_transition, check_transition
+from .registry import (
+    AuditEvent,
+    EventKind,
+    Label,
+    LabelRegistry,
+    NamespaceRegistry,
+    Store,
+    reserved_owner_key,
+)
+from .zpl import build_zpl, build_zpl_batch, sanitize_zpl_text
 
 __version__ = "0.1.0"
 
 __all__ = [
     "ALIAS_PREFIX",
+    "ALLOWED_TRANSITIONS",
+    "DEFAULT_PRESET",
+    "SHEET_PRESETS",
     "ASSET_REFERENCE_DIGITS",
     "BLOCK_DIGITS",
     "GIAI96_HEADER",
@@ -67,6 +89,15 @@ __all__ = [
     "SERIAL_DIGITS",
     "AliasParts",
     "AssetIdError",
+    "AuditEvent",
+    "EventKind",
+    "Label",
+    "LabelFace",
+    "LabelRegistry",
+    "LabelState",
+    "NamespaceRegistry",
+    "SheetPreset",
+    "Store",
     "AssetIdentity",
     "DuplicateAlias",
     "CodeKind",
@@ -84,6 +115,10 @@ __all__ = [
     "build_asset_reference",
     "build_giai",
     "build_gs1_link",
+    "build_zpl",
+    "build_zpl_batch",
+    "can_transition",
+    "check_transition",
     "compute_check_char",
     "decode_giai96",
     "derive_identity",
@@ -94,6 +129,10 @@ __all__ = [
     "parse_alias",
     "parse_any",
     "partition_for_prefix",
+    "render_sheet",
+    "render_single",
+    "reserved_owner_key",
+    "sanitize_zpl_text",
     "split_asset_reference",
     "split_giai",
     "verify_check_char",
