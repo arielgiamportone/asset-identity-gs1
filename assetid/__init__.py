@@ -1,0 +1,98 @@
+"""GS1 identity for physical inventory assets.
+
+Four equivalent forms per asset (GIAI, checked alias, GIAI-96 EPC and GS1
+Digital Link), tenant namespaces that guarantee uniqueness by construction,
+an issuing registry with a label lifecycle, and label rendering (PDF sheets,
+ZPL for RFID encoders).
+"""
+
+from __future__ import annotations
+
+from .checkchar import MOD43_ALPHABET, compute_check_char, verify_check_char
+from .epc import (
+    GIAI96_HEADER,
+    PARTITIONS,
+    Giai96Parts,
+    decode_giai96,
+    encode_giai96,
+    giai_from_giai96,
+    partition_for_prefix,
+)
+from .errors import (
+    AssetIdError,
+    IllegalTransition,
+    InvalidCharacter,
+    NamespaceCollision,
+    NamespaceIncomplete,
+    NotGiai96,
+    OutOfRange,
+)
+from .identity import (
+    ALIAS_PREFIX,
+    ASSET_REFERENCE_DIGITS,
+    BLOCK_DIGITS,
+    GIAI_AI,
+    GIAI_MAX_LENGTH,
+    SERIAL_DIGITS,
+    AliasParts,
+    AssetIdentity,
+    CodeKind,
+    Namespace,
+    ParsedCode,
+    build_alias,
+    build_asset_reference,
+    build_giai,
+    build_gs1_link,
+    derive_identity,
+    giai_from_gs1_link,
+    normalize_inventory_number,
+    parse_alias,
+    parse_any,
+    split_asset_reference,
+    split_giai,
+)
+
+__version__ = "0.1.0"
+
+__all__ = [
+    "ALIAS_PREFIX",
+    "ASSET_REFERENCE_DIGITS",
+    "BLOCK_DIGITS",
+    "GIAI96_HEADER",
+    "GIAI_AI",
+    "GIAI_MAX_LENGTH",
+    "MOD43_ALPHABET",
+    "PARTITIONS",
+    "SERIAL_DIGITS",
+    "AliasParts",
+    "AssetIdError",
+    "AssetIdentity",
+    "CodeKind",
+    "Giai96Parts",
+    "IllegalTransition",
+    "InvalidCharacter",
+    "Namespace",
+    "NamespaceCollision",
+    "NamespaceIncomplete",
+    "NotGiai96",
+    "OutOfRange",
+    "ParsedCode",
+    "__version__",
+    "build_alias",
+    "build_asset_reference",
+    "build_giai",
+    "build_gs1_link",
+    "compute_check_char",
+    "decode_giai96",
+    "derive_identity",
+    "encode_giai96",
+    "giai_from_giai96",
+    "giai_from_gs1_link",
+    "normalize_inventory_number",
+    "parse_alias",
+    "parse_any",
+    "partition_for_prefix",
+    "split_asset_reference",
+    "split_giai",
+    "verify_check_char",
+]
