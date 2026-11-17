@@ -3,7 +3,7 @@ requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "assetid"
+name = "asset-identity-gs1"
 version = "0.1.0"
 description = "GS1 identity for physical inventory assets: GIAI, GIAI-96 EPC, GS1 Digital Link, checked aliases, Code128/QR label sheets and RFID ZPL, with offline multi-tenant uniqueness."
 readme = "README.md"

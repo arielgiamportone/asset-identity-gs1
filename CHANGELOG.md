@@ -6,6 +6,12 @@ to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Distribution name is `asset-identity-gs1` (the import name stays `assetid`), so
+  the package can be published to PyPI under the repository name.
+- Added the PyPI publishing workflow (trusted publishing, on release or on demand).
+
 ## [0.1.0] - 2026-11-16
 
 First clean-room release.

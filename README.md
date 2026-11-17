@@ -2,7 +2,7 @@
 
 **GS1 identity for the physical assets of an inventory: one identity, four equivalent forms, uniqueness without a server.**
 
-[Versión en español](README.es.md) · Python package `assetid` · MIT · CI on Python 3.11 and 3.12
+[Versión en español](README.es.md) · `pip install asset-identity-gs1` (import `assetid`) · MIT · CI on Python 3.11 and 3.12
 
 ```python
 from assetid import Namespace, derive_identity
